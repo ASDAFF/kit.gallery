@@ -1,3 +1,3 @@
 <?
-$MESS ['C_BACK_URL_TITLE'] = "Íàçàä";
+$MESS ['C_BACK_URL_TITLE'] = "ÐÐ°Ð·Ð°Ð´";
 ?>

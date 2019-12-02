@@ -1,5 +1,5 @@
 <?
-$MESS ['T_ARTDEPO_GALLERY_PHOTO_LIST_NAME'] = "Ñïèñîê ôîòîãðàôèé";
-$MESS ['T_ARTDEPO_GALLERY_PHOTO_LIST_DESC'] = "Ñïèñîê ôîòîãðàôèé èç çàäàíîãî àëüáîìà.";
-$MESS ['T_ARTDEPO_DESC_GALLERY'] = "Ôîòîãàëåðåÿ";
+$MESS ['T_ARTDEPO_GALLERY_PHOTO_LIST_NAME'] = "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¹";
+$MESS ['T_ARTDEPO_GALLERY_PHOTO_LIST_DESC'] = "Ð¡Ð¿Ð¸ÑÐ¾Ðº Ñ„Ð¾Ñ‚Ð¾Ð³Ñ€Ð°Ñ„Ð¸Ð¹ Ð¸Ð· Ð·Ð°Ð´Ð°Ð½Ð¾Ð³Ð¾ Ð°Ð»ÑŒÐ±Ð¾Ð¼Ð°.";
+$MESS ['T_ARTDEPO_DESC_GALLERY'] = "Ð¤Ð¾Ñ‚Ð¾Ð³Ð°Ð»ÐµÑ€ÐµÑ";
 ?>

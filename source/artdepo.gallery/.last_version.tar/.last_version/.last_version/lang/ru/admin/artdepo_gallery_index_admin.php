@@ -1,20 +1,20 @@
 <?
-$MESS ['IBEL_A_UPDERR'] = "Âîçíèêëè îøèáêè ïðè ñîõðàíåíèè èçìåíåíèé";
-$MESS ['ARTDEPO_GALLERY_LIST_ERR_DEL'] = "Îøèáêà ïðè óäàëåíèè êîëëåêöèè. Ïðîâåðüòå ïðàâà äîñòóïà â ìåäèàáèáëèîòåêå.";
-$MESS ['ARTDEPO_GALLERY_LIST_NAV'] = "Ðàçäåëû";
-$MESS ['ARTDEPO_GALLERY_NAME'] = "Íàçâàíèå";
-$MESS ['ARTDEPO_GALLERY_ACTIVE'] = "Àêòèâíîñòü";
-$MESS ['ARTDEPO_GALLERY_DATE_UPDATE'] = "Äàòà îáíîâëåíèÿ";
-$MESS ['ARTDEPO_GALLERY_OWNER_ID'] = "Êåì ñîçäàí";
+$MESS ['IBEL_A_UPDERR'] = "Ð’Ð¾Ð·Ð½Ð¸ÐºÐ»Ð¸ Ð¾ÑˆÐ¸Ð±ÐºÐ¸ Ð¿Ñ€Ð¸ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ð¸ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ð¹";
+$MESS ['ARTDEPO_GALLERY_LIST_ERR_DEL'] = "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ð¸ ÐºÐ¾Ð»Ð»ÐµÐºÑ†Ð¸Ð¸. ÐŸÑ€Ð¾Ð²ÐµÑ€ÑŒÑ‚Ðµ Ð¿Ñ€Ð°Ð²Ð° Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ð² Ð¼ÐµÐ´Ð¸Ð°Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐµ.";
+$MESS ['ARTDEPO_GALLERY_LIST_NAV'] = "Ð Ð°Ð·Ð´ÐµÐ»Ñ‹";
+$MESS ['ARTDEPO_GALLERY_NAME'] = "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ";
+$MESS ['ARTDEPO_GALLERY_ACTIVE'] = "ÐÐºÑ‚Ð¸Ð²Ð½Ð¾ÑÑ‚ÑŒ";
+$MESS ['ARTDEPO_GALLERY_DATE_UPDATE'] = "Ð”Ð°Ñ‚Ð° Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ";
+$MESS ['ARTDEPO_GALLERY_OWNER_ID'] = "ÐšÐµÐ¼ ÑÐ¾Ð·Ð´Ð°Ð½";
 $MESS ['IBLIST_A_LIST'] = "";
 
-$MESS ['ARTDEPO_GALLERY_ACTIVE_YES'] = "Äà";
-$MESS ['ARTDEPO_GALLERY_ACTIVE_NO'] = "Íåò";
-$MESS ['ARTDEPO_GALLERY_LIST_ENTER'] = "Îòêðûòü ðàçäåë";
-$MESS ['ARTDEPO_GALLERY_LIST_EDIT'] = "Èçìåíèòü";
-$MESS ['ARTDEPO_GALLERY_LIST_DEL'] = "Óäàëèòü";
-$MESS ['ARTDEPO_GALLERY_LIST_DEL_CONF'] = "Áóäåò óäàëåíà âñÿ èíôîðìàöèÿ ñâÿçàííàÿ ñ ýòîé çàïèñüþ! Ïðîäîëæèòü?";
-$MESS ['ARTDEPO_GALLERY_LIST_ADD'] = "Íîâûé ðàçäåë";
-$MESS ['ARTDEPO_GALLERY_LIST_ADD_TITLE'] = "Äîáàâèòü íîâûé ðàçäåë";
-$MESS ['ARTDEPO_GALLERY_LIST_PAGE_TITLE'] = "Ãàëåðåÿ: Ðàçäåëû";
+$MESS ['ARTDEPO_GALLERY_ACTIVE_YES'] = "Ð”Ð°";
+$MESS ['ARTDEPO_GALLERY_ACTIVE_NO'] = "ÐÐµÑ‚";
+$MESS ['ARTDEPO_GALLERY_LIST_ENTER'] = "ÐžÑ‚ÐºÑ€Ñ‹Ñ‚ÑŒ Ñ€Ð°Ð·Ð´ÐµÐ»";
+$MESS ['ARTDEPO_GALLERY_LIST_EDIT'] = "Ð˜Ð·Ð¼ÐµÐ½Ð¸Ñ‚ÑŒ";
+$MESS ['ARTDEPO_GALLERY_LIST_DEL'] = "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ";
+$MESS ['ARTDEPO_GALLERY_LIST_DEL_CONF'] = "Ð‘ÑƒÐ´ÐµÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½Ð° Ð²ÑÑ Ð¸Ð½Ñ„Ð¾Ñ€Ð¼Ð°Ñ†Ð¸Ñ ÑÐ²ÑÐ·Ð°Ð½Ð½Ð°Ñ Ñ ÑÑ‚Ð¾Ð¹ Ð·Ð°Ð¿Ð¸ÑÑŒÑŽ! ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ?";
+$MESS ['ARTDEPO_GALLERY_LIST_ADD'] = "ÐÐ¾Ð²Ñ‹Ð¹ Ñ€Ð°Ð·Ð´ÐµÐ»";
+$MESS ['ARTDEPO_GALLERY_LIST_ADD_TITLE'] = "Ð”Ð¾Ð±Ð°Ð²Ð¸Ñ‚ÑŒ Ð½Ð¾Ð²Ñ‹Ð¹ Ñ€Ð°Ð·Ð´ÐµÐ»";
+$MESS ['ARTDEPO_GALLERY_LIST_PAGE_TITLE'] = "Ð“Ð°Ð»ÐµÑ€ÐµÑ: Ð Ð°Ð·Ð´ÐµÐ»Ñ‹";
 ?>

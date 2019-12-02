@@ -50,7 +50,7 @@ Class artdepo_gallery extends CModule
         if (!$root_collection_id)
         {
             $this->errors = array(GetMessage("ADG_MODULE_ERROR_NO_ROOT_COLLECTION"));
-            $APPLICATION->ThrowException(implode("<br>", $this->errors)); // TODO: не отображается ошибка
+            $APPLICATION->ThrowException(implode("<br>", $this->errors)); // TODO: РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РѕС€РёР±РєР°
             return false;
         }
         
@@ -70,7 +70,7 @@ Class artdepo_gallery extends CModule
             if (!$section_id)
 	        {
 	            $this->errors = array(GetMessage("ADG_MODULE_ERROR_NO_ROOT_COLLECTION"));
-	            $APPLICATION->ThrowException(implode("<br>", $this->errors)); // TODO: не отображается ошибка
+	            $APPLICATION->ThrowException(implode("<br>", $this->errors)); // TODO: РЅРµ РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РѕС€РёР±РєР°
 	            return false;
             }
             

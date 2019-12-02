@@ -1,3 +1,3 @@
 <?
-$MESS ['ARTDEPO_GALLERY_MENU_MAIN'] = "Ãàëåðåÿ ñ ìóëüòèçàãðóçêîé";
+$MESS ['ARTDEPO_GALLERY_MENU_MAIN'] = "Ð“Ð°Ð»ÐµÑ€ÐµÑ Ñ Ð¼ÑƒÐ»ÑŒÑ‚Ð¸Ð·Ð°Ð³Ñ€ÑƒÐ·ÐºÐ¾Ð¹";
 ?>

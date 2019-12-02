@@ -1,13 +1,13 @@
 <?
-$MESS ['ADG_ERROR_WRONG_PARENT_SECTION'] = "Íå çàäàí ðîäèòåëüñêèé ðàçäåë, ëèáî ïåðåäàí îøèáî÷íûé ID.";
-$MESS ['ADG_PH_ERR_EDIT'] = "Îøèáêà ïðè ñîõðàíåíèè";
-$MESS ['ADG_PH_ERR_DEL'] = "Îøèáêè ïðè óäàëåíèè ýëåìåíòîâ";
-$MESS ['ADG_PH_LIST_NAV'] = "Ýëåìåíòû";
-$MESS ['ARTDEPO_GALLERY_PHOTO_NAME'] = "Íàçâàíèå";
-$MESS ['ARTDEPO_GALLERY_PHOTO_SORT'] = "Ñîðòèðîâêà";
-$MESS ['ARTDEPO_GALLERY_PHOTO_DATE_UPDATE'] = "Äàòà îáíîâëåíèÿ";
-$MESS ['ARTDEPO_GALLERY_PHOTO_DATE_CREATE'] = "Äàòà ñîçäàíèÿ";
-$MESS ['ARTDEPO_GALLERY_PHOTO_LIST_EDIT'] = "Ïåðåèìåíîâàòü";
-$MESS ['ARTDEPO_GALLERY_PHOTO_LIST_DEL'] = "Óäàëèòü";
-$MESS ['ARTDEPO_GALLERY_PHOTO_LIST_DEL_CONF'] = "Âûáðàííûå èçîáðàæåíèÿ áóäóò óäàëåíû! Ïðîäîëæèòü?";
+$MESS ['ADG_ERROR_WRONG_PARENT_SECTION'] = "ÐÐµ Ð·Ð°Ð´Ð°Ð½ Ñ€Ð¾Ð´Ð¸Ñ‚ÐµÐ»ÑŒÑÐºÐ¸Ð¹ Ñ€Ð°Ð·Ð´ÐµÐ», Ð»Ð¸Ð±Ð¾ Ð¿ÐµÑ€ÐµÐ´Ð°Ð½ Ð¾ÑˆÐ¸Ð±Ð¾Ñ‡Ð½Ñ‹Ð¹ ID.";
+$MESS ['ADG_PH_ERR_EDIT'] = "ÐžÑˆÐ¸Ð±ÐºÐ° Ð¿Ñ€Ð¸ ÑÐ¾Ñ…Ñ€Ð°Ð½ÐµÐ½Ð¸Ð¸";
+$MESS ['ADG_PH_ERR_DEL'] = "ÐžÑˆÐ¸Ð±ÐºÐ¸ Ð¿Ñ€Ð¸ ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ð¸ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²";
+$MESS ['ADG_PH_LIST_NAV'] = "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹";
+$MESS ['ARTDEPO_GALLERY_PHOTO_NAME'] = "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ";
+$MESS ['ARTDEPO_GALLERY_PHOTO_SORT'] = "Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ°";
+$MESS ['ARTDEPO_GALLERY_PHOTO_DATE_UPDATE'] = "Ð”Ð°Ñ‚Ð° Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ñ";
+$MESS ['ARTDEPO_GALLERY_PHOTO_DATE_CREATE'] = "Ð”Ð°Ñ‚Ð° ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ";
+$MESS ['ARTDEPO_GALLERY_PHOTO_LIST_EDIT'] = "ÐŸÐµÑ€ÐµÐ¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ñ‚ÑŒ";
+$MESS ['ARTDEPO_GALLERY_PHOTO_LIST_DEL'] = "Ð£Ð´Ð°Ð»Ð¸Ñ‚ÑŒ";
+$MESS ['ARTDEPO_GALLERY_PHOTO_LIST_DEL_CONF'] = "Ð’Ñ‹Ð±Ñ€Ð°Ð½Ð½Ñ‹Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð±ÑƒÐ´ÑƒÑ‚ ÑƒÐ´Ð°Ð»ÐµÐ½Ñ‹! ÐŸÑ€Ð¾Ð´Ð¾Ð»Ð¶Ð¸Ñ‚ÑŒ?";
 ?>

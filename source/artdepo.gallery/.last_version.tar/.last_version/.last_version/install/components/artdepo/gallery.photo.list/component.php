@@ -12,7 +12,7 @@ $name_lbl = "NAME_" . strtoupper($arParams["LANGUAGE_ID"]);
 
 $arParams["PARENT_ID"] = intval($arParams["PARENT_ID"]);
 if($arParams["PARENT_ID"]<=0){
-	ShowError(GetMessage("PARENT_ID_NOT_DEFINED")); // TODO: Задать текст
+	ShowError(GetMessage("PARENT_ID_NOT_DEFINED")); // TODO: Р—Р°РґР°С‚СЊ С‚РµРєСЃС‚
 	return;
 }
 
@@ -70,13 +70,13 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 	if(!CModule::IncludeModule("iblock"))
 	{
 		$this->AbortResultCache();
-		ShowError(GetMessage("IBLOCK_MODULE_NOT_INSTALLED")); // TODO: Написать текст
+		ShowError(GetMessage("IBLOCK_MODULE_NOT_INSTALLED")); // TODO: РќР°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚
 		return;
 	}
 	if(!CModule::IncludeModule("artdepo.gallery"))
 	{
 		$this->AbortResultCache();
-		ShowError(GetMessage("ARTDEPO_GALLERY_MODULE_NOT_INSTALLED")); // TODO: Написать текст
+		ShowError(GetMessage("ARTDEPO_GALLERY_MODULE_NOT_INSTALLED")); // TODO: РќР°РїРёСЃР°С‚СЊ С‚РµРєСЃС‚
 		return;
 	}
 	

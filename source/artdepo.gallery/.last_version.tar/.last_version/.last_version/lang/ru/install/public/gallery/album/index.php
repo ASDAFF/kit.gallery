@@ -1,3 +1,3 @@
 <?
-$MESS['ADG_INSTALL_PUBLIC_TITLE_ALBUM_INDEX'] = "Γΰλεπεÿ";
+$MESS['ADG_INSTALL_PUBLIC_TITLE_ALBUM_INDEX'] = "Π“Π°Π»ΠµΡ€ΠµΡ";
 ?>

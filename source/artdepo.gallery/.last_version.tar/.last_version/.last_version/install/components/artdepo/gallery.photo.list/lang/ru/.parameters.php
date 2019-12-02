@@ -1,30 +1,30 @@
 <?
-$MESS ['POP_NONE'] = "Íå èñïîëüçîâàòü (â ñëó÷àå ñâîèõ ñêðèïòîâ)";
-$MESS ['COMP_POPUP_TEMPLATE'] = "Âèä îòîáðàæåíèÿ áîëüøèõ ôîòî";
+$MESS ['POP_NONE'] = "ÐÐµ Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·Ð¾Ð²Ð°Ñ‚ÑŒ (Ð² ÑÐ»ÑƒÑ‡Ð°Ðµ ÑÐ²Ð¾Ð¸Ñ… ÑÐºÑ€Ð¸Ð¿Ñ‚Ð¾Ð²)";
+$MESS ['COMP_POPUP_TEMPLATE'] = "Ð’Ð¸Ð´ Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ Ð±Ð¾Ð»ÑŒÑˆÐ¸Ñ… Ñ„Ð¾Ñ‚Ð¾";
 
-$MESS ['COMP_ARTDEPO_GALLERY_PHOTO_LIST_SECTION_ID_NAME'] = "Ðàçäåë";
-$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_PARENT_ID_NAME'] = "Àëüáîì";
+$MESS ['COMP_ARTDEPO_GALLERY_PHOTO_LIST_SECTION_ID_NAME'] = "Ð Ð°Ð·Ð´ÐµÐ»";
+$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_PARENT_ID_NAME'] = "ÐÐ»ÑŒÐ±Ð¾Ð¼";
 
-$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_SORT_BY1_NAME'] = "Ïîëå äëÿ ñîðòèðîâêè";
-$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_SORT_ORDER1_NAME'] = "Íàïðàâëåíèå äëÿ ñîðòèðîâêè";
+$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_SORT_BY1_NAME'] = "ÐŸÐ¾Ð»Ðµ Ð´Ð»Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸";
+$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_SORT_ORDER1_NAME'] = "ÐÐ°Ð¿Ñ€Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð´Ð»Ñ ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ¸";
 
-$MESS ["T_IBLOCK_DESC_ASC"] = "Ïî âîçðàñòàíèþ";
-$MESS ["T_IBLOCK_DESC_DESC"] = "Ïî óáûâàíèþ";
+$MESS ["T_IBLOCK_DESC_ASC"] = "ÐŸÐ¾ Ð²Ð¾Ð·Ñ€Ð°ÑÑ‚Ð°Ð½Ð¸ÑŽ";
+$MESS ["T_IBLOCK_DESC_DESC"] = "ÐŸÐ¾ ÑƒÐ±Ñ‹Ð²Ð°Ð½Ð¸ÑŽ";
 $MESS ["T_IBLOCK_DESC_FID"] = "ID";
-$MESS ["T_IBLOCK_DESC_FNAME"] = "Íàçâàíèå";
-$MESS ["T_IBLOCK_DESC_FSORT"] = "Ñîðòèðîâêà";
-$MESS ["T_IBLOCK_DESC_FTSAMP"] = "Äàòà ïîñëåäíåãî èçìåíåíèÿ";
-$MESS ["T_IBLOCK_DESC_FTSCREATED"] = "Äàòà ñîçäàíèÿ";
+$MESS ["T_IBLOCK_DESC_FNAME"] = "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ";
+$MESS ["T_IBLOCK_DESC_FSORT"] = "Ð¡Ð¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ°";
+$MESS ["T_IBLOCK_DESC_FTSAMP"] = "Ð”Ð°Ñ‚Ð° Ð¿Ð¾ÑÐ»ÐµÐ´Ð½ÐµÐ³Ð¾ Ð¸Ð·Ð¼ÐµÐ½ÐµÐ½Ð¸Ñ";
+$MESS ["T_IBLOCK_DESC_FTSCREATED"] = "Ð”Ð°Ñ‚Ð° ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ";
 
-$MESS ["COMP_GPL_DESC_BACK_URL"] = "Ññûëêà íàçàä";
+$MESS ["COMP_GPL_DESC_BACK_URL"] = "Ð¡ÑÑ‹Ð»ÐºÐ° Ð½Ð°Ð·Ð°Ð´";
 
-$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_DISPLAY_NAME_NAME'] = "Âûâîäèòü íàçâàíèå ýëåìåíòà";
-$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_LANGUAGE_ID_NAME'] = "ßçûê îòîáðàæåíèÿ";
-$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_NEWS_COUNT_NAME'] = "Êîëè÷åñòâî ýëåìåíòîâ íà ñòðàíèöå";
+$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_DISPLAY_NAME_NAME'] = "Ð’Ñ‹Ð²Ð¾Ð´Ð¸Ñ‚ÑŒ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°";
+$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_LANGUAGE_ID_NAME'] = "Ð¯Ð·Ñ‹Ðº Ð¾Ñ‚Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ñ";
+$MESS ['COMP_ARTDEPO_GALLERY_ALBUM_LIST_NEWS_COUNT_NAME'] = "ÐšÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ðµ";
 
-$MESS ["COMP_ARTDEPO_GALLERY_ALBUM_LIST_NAME_TRUNCATE_LEN_NAME"] = "Ìàêñèìàëüíàÿ äëèíà íàçâàíèÿ äëÿ âûâîäà";
-$MESS ["COMP_ARTDEPO_GALLERY_ALBUM_LIST_SKIP_FIRST_NAME"] = "Ïðîïóñòèòü ïåðâîå èçîáðàæåíèå";
-$MESS ["CP_ADGL_SET_STATUS_404"] = "Óñòàíàâëèâàòü ñòàòóñ 404, åñëè íå íàéäåí ðàçäåë";
+$MESS ["COMP_ARTDEPO_GALLERY_ALBUM_LIST_NAME_TRUNCATE_LEN_NAME"] = "ÐœÐ°ÐºÑÐ¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð´Ð»Ð¸Ð½Ð° Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ñ Ð´Ð»Ñ Ð²Ñ‹Ð²Ð¾Ð´Ð°";
+$MESS ["COMP_ARTDEPO_GALLERY_ALBUM_LIST_SKIP_FIRST_NAME"] = "ÐŸÑ€Ð¾Ð¿ÑƒÑÑ‚Ð¸Ñ‚ÑŒ Ð¿ÐµÑ€Ð²Ð¾Ðµ Ð¸Ð·Ð¾Ð±Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ";
+$MESS ["CP_ADGL_SET_STATUS_404"] = "Ð£ÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°Ñ‚ÑŒ ÑÑ‚Ð°Ñ‚ÑƒÑ 404, ÐµÑÐ»Ð¸ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½ Ñ€Ð°Ð·Ð´ÐµÐ»";
 
-$MESS ["CP_BNL_CACHE_GROUPS"] = "Ó÷èòûâàòü ïðàâà äîñòóïà";
+$MESS ["CP_BNL_CACHE_GROUPS"] = "Ð£Ñ‡Ð¸Ñ‚Ñ‹Ð²Ð°Ñ‚ÑŒ Ð¿Ñ€Ð°Ð²Ð° Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð°";
 ?>

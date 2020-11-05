@@ -5,9 +5,9 @@ CModule::IncludeModule("fileman");
 CMedialib::Init();
 
 CModule::AddAutoloadClasses("kit.gallery", array(
-	"CArtDepoGallerySection" => "classes/general/kit_gallery.php",
-	"CArtDepoGalleryImage" => "classes/general/kit_gallery.php",
-	"CArtDepoGalleryUtils" => "classes/general/kit_gallery.php",
+	"CKitGallerySection" => "classes/general/kit_gallery.php",
+	"CKitGalleryImage" => "classes/general/kit_gallery.php",
+	"CKitGalleryUtils" => "classes/general/kit_gallery.php",
 ));
 
 // JavaScript with lang-files

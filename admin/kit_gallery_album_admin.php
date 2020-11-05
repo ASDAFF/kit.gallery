@@ -8,9 +8,9 @@ require_once(dirname(__FILE__)."/../prolog.php");
 IncludeModuleLangFile(__FILE__);
 
 // Получим списко всех языков
-$languages = CArtDepoGalleryUtils::GetSiteLangs();
+$languages = CKitGalleryUtils::GetSiteLangs();
 
-$gImage = new CArtDepoGalleryImage();
+$gImage = new CKitGalleryImage();
 
 $parent_id = intval($_REQUEST["find_parent_id"]);
 
@@ -52,9 +52,9 @@ if($parent_id>0)
 if(intVal($parent_id)<0 || strlen($parent_id)<=0)
 	unset($arFilter["PARENT_ID"]);
 
-$arParentSection = CArtDepoGallerySection:: GetByID($parent_id);
+$arParentSection = CKitGallerySection:: GetByID($parent_id);
 if(!$arParentSection)
-    $lAdmin->AddGroupError(GetMessage("ADG_ERROR_WRONG_PARENT_SECTION"));
+    $lAdmin->AddGroupError(GetMessage("KIT_GALLERY_ERROR_WRONG_PARENT_SECTION"));
     
 if($lAdmin->EditAction())
 {
@@ -64,10 +64,10 @@ if($lAdmin->EditAction())
 		if($ID <= 0)
 			continue;
 		$arUpdate['SORT'] = $arFields['SORT'];
-		if(!CArtDepoGalleryImage::UpdateSort($ID, $arUpdate))
+		if(!CKitGalleryImage::UpdateSort($ID, $arUpdate))
 		{
 			$e = $APPLICATION->GetException();
-			$lAdmin->AddUpdateError(($e? $e->GetString():GetMessage("ADG_PH_ERR_EDIT")), $ID);
+			$lAdmin->AddUpdateError(($e? $e->GetString():GetMessage("KIT_GALLERY_PH_ERR_EDIT")), $ID);
 		}
 	}
 }
@@ -89,8 +89,8 @@ if(($arID = $lAdmin->GroupAction()))
 		switch($_REQUEST['action'])
 		{
 			case "delete":
-		        if(!CArtDepoGalleryImage::Delete($ID, 'current', $parent_id))
-		            $lAdmin->AddGroupError(GetMessage("ADG_PH_ERR_DEL"), $ID);
+		        if(!CKitGalleryImage::Delete($ID, 'current', $parent_id))
+		            $lAdmin->AddGroupError(GetMessage("KIT_GALLERY_PH_ERR_DEL"), $ID);
 			break;
 		}
 	}
@@ -99,13 +99,13 @@ if(($arID = $lAdmin->GroupAction()))
 $rsData = $gImage->GetList(array($by=>$order), $arFilter);
 $rsData = new CAdminResult($rsData, $sTableID);
 $rsData->NavStart();
-$lAdmin->NavText($rsData->GetNavPrint(GetMessage("ADG_PH_LIST_NAV")));
+$lAdmin->NavText($rsData->GetNavPrint(GetMessage("KIT_GALLERY_PH_LIST_NAV")));
 
 $aHeaders = array(
-	array("id"=>"NAME", "content"=>GetMessage("ARTDEPO_GALLERY_PHOTO_NAME"), "sort"=>"name", "default"=>true),
-	array("id"=>"SORT", "content"=>GetMessage("ARTDEPO_GALLERY_PHOTO_SORT"), "sort"=>"sort", "default"=>true),
-	array("id"=>"DATE_UPDATE", "content"=>GetMessage("ARTDEPO_GALLERY_PHOTO_DATE_UPDATE"), "sort"=>"date_update", "default"=>true),
-	array("id"=>"DATE_CREATE", "content"=>GetMessage("ARTDEPO_GALLERY_PHOTO_DATE_CREATE"), "sort"=>"date_create", "default"=>false),
+	array("id"=>"NAME", "content"=>GetMessage("KIT_GALLERY_PHOTO_NAME"), "sort"=>"name", "default"=>true),
+	array("id"=>"SORT", "content"=>GetMessage("KIT_GALLERY_PHOTO_SORT"), "sort"=>"sort", "default"=>true),
+	array("id"=>"DATE_UPDATE", "content"=>GetMessage("KIT_GALLERY_PHOTO_DATE_UPDATE"), "sort"=>"date_update", "default"=>true),
+	array("id"=>"DATE_CREATE", "content"=>GetMessage("KIT_GALLERY_PHOTO_DATE_CREATE"), "sort"=>"date_create", "default"=>false),
 	array("id"=>"ID", "content"=>"ID", "sort"=>"id", "default"=>true),
 );
 
@@ -117,7 +117,7 @@ while($arRes = $rsData->NavNext(true, "f_"))
 	$row =& $lAdmin->AddRow($f_ID, $arRes);
 
     // pack names according to languages order
-    $strNames = CArtDepoGalleryUtils::PackNamesInStringOrderedByLang($arRes, $languages);
+    $strNames = CKitGalleryUtils::PackNamesInStringOrderedByLang($arRes, $languages);
     $row_name = $f_NAME . (($strNames) ? " ({$strNames})" : "");
     
     $name_html = "<table><tr>
@@ -151,13 +151,13 @@ while($arRes = $rsData->NavNext(true, "f_"))
 	$arActions = Array(
 		array(
 			"ICON"=>"rename",
-			"TEXT"=>GetMessage("ARTDEPO_GALLERY_PHOTO_LIST_EDIT"),
-			"ACTION"=>"ArtDepoGallery.edit(\"{$f_ID}\", \"item\");",
+			"TEXT"=>GetMessage("KIT_GALLERY_PHOTO_LIST_EDIT"),
+			"ACTION"=>"KitGallery.edit(\"{$f_ID}\", \"item\");",
 		),
 		array(
 			"ICON"=>"delete",
-			"TEXT"=>GetMessage("ARTDEPO_GALLERY_PHOTO_LIST_DEL"),
-			"ACTION"=>"if(confirm('".GetMessage("ARTDEPO_GALLERY_PHOTO_LIST_DEL_CONF")."')) ".$lAdmin->ActionDoGroup($f_ID, "delete", $sThisSectionUrl)
+			"TEXT"=>GetMessage("KIT_GALLERY_PHOTO_LIST_DEL"),
+			"ACTION"=>"if(confirm('".GetMessage("KIT_GALLERY_PHOTO_LIST_DEL_CONF")."')) ".$lAdmin->ActionDoGroup($f_ID, "delete", $sThisSectionUrl)
 		),
 	);
 	$row->AddActions($arActions);
@@ -183,9 +183,9 @@ $title = "";
 $chain = $lAdmin->CreateChain();
 if($parent_id > 0)
 {
-	if($ar_nav = CArtDepoGallerySection::GetByID($parent_id))
+	if($ar_nav = CKitGallerySection::GetByID($parent_id))
 	{
-	    if($ar_nav["PARENT_ID"]) if($ar_nav_parent = CArtDepoGallerySection::GetByID($ar_nav["PARENT_ID"]))
+	    if($ar_nav["PARENT_ID"]) if($ar_nav_parent = CKitGallerySection::GetByID($ar_nav["PARENT_ID"]))
 	    {
             $sSectionUrl = BX_ROOT."/admin/kit_gallery_section_admin.php?lang=".urlencode(LANG)."&find_parent_id=".$ar_nav["PARENT_ID"];
 		    $chain->AddItem(array(

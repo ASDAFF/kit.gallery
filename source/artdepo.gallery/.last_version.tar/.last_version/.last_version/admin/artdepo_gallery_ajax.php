@@ -112,7 +112,7 @@ elseif ($action == 'edit_item')
 	    if ($res)
 	        echo "<script>window.location.assign(window.location.href);</script>";
 	    else
-	        echo "<script>alert('Îøèáêà, ïîïðîáóéòå åù¸ ðàç');>window.location.assign(window.location.href);</script>";
+	        echo "<script>alert('ÐžÑˆÐ¸Ð±ÐºÐ°, Ð¿Ð¾Ð¿Ñ€Ð¾Ð±ÑƒÐ¹Ñ‚Ðµ ÐµÑ‰Ñ‘ Ñ€Ð°Ð·');>window.location.assign(window.location.href);</script>";
     } else {
         echo '{"success": ' . ((!$res) ? 'false' : 'true') . '}';
     }

@@ -6,10 +6,10 @@ require_once(dirname(__FILE__)."/../prolog.php");
 
 IncludeModuleLangFile(__FILE__);
 
-$gSection = new CArtDepoGallerySection();
+$gSection = new CKitGallerySection();
 
 // Получим списко всех языков
-$languages = CArtDepoGalleryUtils::GetSiteLangs();
+$languages = CKitGalleryUtils::GetSiteLangs();
 
 $parent_id = intval($_REQUEST["find_parent_id"]);
 
@@ -53,9 +53,9 @@ if($parent_id>0)
 if(IntVal($parent_id)<0 || strlen($parent_id)<=0)
 	unset($arFilter["PARENT_ID"]);
 
-$arParentSection = CArtDepoGallerySection:: GetByID($parent_id);
+$arParentSection = CKitGallerySection:: GetByID($parent_id);
 if(!$arParentSection)
-    $lAdmin->AddGroupError(GetMessage("ADG_ERROR_WRONG_PARENT_SECTION"));
+    $lAdmin->AddGroupError(GetMessage("KIT_GALLERY_ERROR_WRONG_PARENT_SECTION"));
 	
 if(($arID = $lAdmin->GroupAction()))
 {
@@ -80,7 +80,7 @@ if(($arID = $lAdmin->GroupAction()))
 					$lAdmin->AddGroupError(GetMessage("IBEL_A_UPDERR").$gSection->LAST_ERROR, $ID);
 			break;
 			case "delete":
-				if(!CArtDepoGallerySection::Delete($ID))
+				if(!CKitGallerySection::Delete($ID))
 					$lAdmin->AddGroupError(GetMessage("IBEL_D_UPDERR"), $ID);
 			break;
 		}
@@ -90,7 +90,7 @@ if(($arID = $lAdmin->GroupAction()))
 $rsData = $gSection->GetList(array($by=>$order), $arFilter);
 $rsData = new CAdminResult($rsData, $sTableID);
 $rsData->NavStart();
-$lAdmin->NavText($rsData->GetNavPrint(GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_NAV")));
+$lAdmin->NavText($rsData->GetNavPrint(GetMessage("KIT_GALLERY_ALBUM_LIST_NAV")));
 
 // string => "Russina / English / ..."
 foreach ($languages as $lang) {
@@ -99,10 +99,10 @@ foreach ($languages as $lang) {
 $strLangTitles = implode(" / ", $strLangTitles);
 
 $aHeaders = array(
-    array("id"=>"NAME", "content"=>GetMessage("ARTDEPO_GALLERY_ALBUM_NAME") . " (" . $strLangTitles . ")", "sort"=>"name", "default"=>true),
-	array("id"=>"ACTIVE", "content"=>GetMessage("ARTDEPO_GALLERY_ALBUM_ACTIVE"), "sort"=>"active", "default"=>true),
-	array("id"=>"SORT", "content"=>GetMessage("ARTDEPO_GALLERY_ALBUM_SORT"), "sort"=>"sort", "default"=>true),
-	array("id"=>"DATE_UPDATE", "content"=>GetMessage("ARTDEPO_GALLERY_ALBUM_DATE_UPDATE"), "sort"=>"date_update", "default"=>true),
+    array("id"=>"NAME", "content"=>GetMessage("KIT_GALLERY_ALBUM_NAME") . " (" . $strLangTitles . ")", "sort"=>"name", "default"=>true),
+	array("id"=>"ACTIVE", "content"=>GetMessage("KIT_GALLERY_ALBUM_ACTIVE"), "sort"=>"active", "default"=>true),
+	array("id"=>"SORT", "content"=>GetMessage("KIT_GALLERY_ALBUM_SORT"), "sort"=>"sort", "default"=>true),
+	array("id"=>"DATE_UPDATE", "content"=>GetMessage("KIT_GALLERY_ALBUM_DATE_UPDATE"), "sort"=>"date_update", "default"=>true),
 	array("id"=>"ID", "content"=>"ID", "sort"=>"id", "default"=>true),
 );
 
@@ -113,10 +113,10 @@ while($arRes = $rsData->NavNext(true, "f_"))
 	$row =& $lAdmin->AddRow($f_ID, $arRes);
 	$open_url = "kit_gallery_album_admin.php?find_parent_id=".$f_ID."&lang=".LANGUAGE_ID;
     // pack names in right order
-    $strNames = CArtDepoGalleryUtils::PackNamesInStringOrderedByLang($arRes, $languages, " /<br>");
+    $strNames = CKitGalleryUtils::PackNamesInStringOrderedByLang($arRes, $languages, " /<br>");
     $row_name = $f_NAME . (($strNames) ? " <br>({$strNames})" : "");
     $row->AddViewField("NAME", '<a href="'.$open_url.'" class="adm-list-table-icon-link"><span class="adm-submenu-item-link-icon adm-list-table-icon iblock-section-icon"></span><span class="adm-list-table-link">'.$row_name.'</span></a>');
-	$row->AddViewField("ACTIVE", $f_ACTIVE == "Y" ? GetMessage("ARTDEPO_GALLERY_ALBUM_ACTIVE_YES") : GetMessage("ARTDEPO_GALLERY_ALBUM_ACTIVE_NO"));
+	$row->AddViewField("ACTIVE", $f_ACTIVE == "Y" ? GetMessage("KIT_GALLERY_ALBUM_ACTIVE_YES") : GetMessage("KIT_GALLERY_ALBUM_ACTIVE_NO"));
 	$row->AddViewField("SORT", $f_SORT);
 	$row->AddViewField("DATE_UPDATE", empty($f_DATE_UPDATE) ? "" : $f_DATE_UPDATE);
 
@@ -124,18 +124,18 @@ while($arRes = $rsData->NavNext(true, "f_"))
 		array(
 			"ICON"=>"",
 			"DEFAULT"=>true,
-			"TEXT"=>GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_ENTER"),
+			"TEXT"=>GetMessage("KIT_GALLERY_ALBUM_LIST_ENTER"),
 			"ACTION"=>$lAdmin->ActionRedirect($open_url)
 		),
 		array(
 			"ICON"=>"edit",
-			"TEXT"=>GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_EDIT"),
-			"ACTION"=>"ArtDepoGallery.edit(\"{$f_ID}\");",
+			"TEXT"=>GetMessage("KIT_GALLERY_ALBUM_LIST_EDIT"),
+			"ACTION"=>"KitGallery.edit(\"{$f_ID}\");",
 		),
 		array(
 			"ICON"=>"delete",
-			"TEXT"=>GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_DEL"),
-			"ACTION"=>"if(confirm('".GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_DEL_CONF")."')) ".$lAdmin->ActionDoGroup($f_ID, "delete", $sThisSectionUrl)."return false;"
+			"TEXT"=>GetMessage("KIT_GALLERY_ALBUM_LIST_DEL"),
+			"ACTION"=>"if(confirm('".GetMessage("KIT_GALLERY_ALBUM_LIST_DEL_CONF")."')) ".$lAdmin->ActionDoGroup($f_ID, "delete", $sThisSectionUrl)."return false;"
 		),
 	);
 	$row->AddActions($arActions);
@@ -164,7 +164,7 @@ $chain = $lAdmin->CreateChain();
 
 if($parent_id > 0)
 {
-	if($ar_nav = CArtDepoGallerySection::GetByID($parent_id))
+	if($ar_nav = CKitGallerySection::GetByID($parent_id))
 	{
 		$sSectionUrl = BX_ROOT."/admin/kit_gallery_section_admin.php?lang=".urlencode(LANG)."&find_parent_id=".$parent_id;
 		$chain->AddItem(array(
@@ -179,23 +179,23 @@ $lAdmin->ShowChain($chain);
 
 $aContext = array(
 	array(
-		"TEXT"=>GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_ADD"),
-		"LINK"=>"javascript:ArtDepoGallery.add();",
+		"TEXT"=>GetMessage("KIT_GALLERY_ALBUM_LIST_ADD"),
+		"LINK"=>"javascript:KitGallery.add();",
 		"ICON"=>"btn_new",
 	),
 );
 $lAdmin->AddAdminContextMenu($aContext);
 $lAdmin->CheckListMode();
 
-$APPLICATION->SetTitle(GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_PAGE_TITLE"));
+$APPLICATION->SetTitle(GetMessage("KIT_GALLERY_ALBUM_LIST_PAGE_TITLE"));
 require_once ($DOCUMENT_ROOT.BX_ROOT."/modules/main/include/prolog_admin_after.php");
 
 $oFilter = new CAdminFilter(
 	$sTableID."_filter",
 	array(
-		GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_FLT_NAME"),
-		GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_FLT_PARENT_ID"),
-		GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_FLT_ACTIVE"),
+		GetMessage("KIT_GALLERY_ALBUM_LIST_FLT_NAME"),
+		GetMessage("KIT_GALLERY_ALBUM_LIST_FLT_PARENT_ID"),
+		GetMessage("KIT_GALLERY_ALBUM_LIST_FLT_ACTIVE"),
 		"ID",
 	)
 );
@@ -204,12 +204,12 @@ $oFilter = new CAdminFilter(
 	<input type="hidden" name="lang" value="<?=LANG?>">
 <?$oFilter->Begin();?>
 	<tr>
-		<td><?echo GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_FLT_NAME")?></td>
+		<td><?echo GetMessage("KIT_GALLERY_ALBUM_LIST_FLT_NAME")?></td>
 		<td><input type="text" name="find_name" size="40" value="<?echo htmlspecialcharsbx($find_name)?>"><?=ShowFilterLogicHelp()?></td>
 	</tr>
 	
 	<tr>
-		<td><?echo GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_FLT_PARENT_ID")?></td>
+		<td><?echo GetMessage("KIT_GALLERY_ALBUM_LIST_FLT_PARENT_ID")?></td>
 		<td>
 			<select name="find_parent_id" >
 				<?
@@ -223,11 +223,11 @@ $oFilter = new CAdminFilter(
 	</tr>
 	
 	<tr>
-		<td><?echo GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_FLT_ACTIVE")?></td>
+		<td><?echo GetMessage("KIT_GALLERY_ALBUM_LIST_FLT_ACTIVE")?></td>
 		<td><select name="find_active">
-			<option value=""><?echo GetMessage("ARTDEPO_GALLERY_ALBUM_LIST_FLT_ALL")?></option>
-			<option value="Y"<?if($find_active == "Y") echo " selected"?>><?echo GetMessage("ARTDEPO_GALLERY_ALBUM_ACTIVE_YES")?></option>
-			<option value="N"<?if($find_active == "N") echo " selected"?>><?echo GetMessage("ARTDEPO_GALLERY_ALBUM_ACTIVE_NO")?></option>
+			<option value=""><?echo GetMessage("KIT_GALLERY_ALBUM_LIST_FLT_ALL")?></option>
+			<option value="Y"<?if($find_active == "Y") echo " selected"?>><?echo GetMessage("KIT_GALLERY_ALBUM_ACTIVE_YES")?></option>
+			<option value="N"<?if($find_active == "N") echo " selected"?>><?echo GetMessage("KIT_GALLERY_ALBUM_ACTIVE_NO")?></option>
 			</select>
 		</td>
 	</tr>

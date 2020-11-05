@@ -76,15 +76,15 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 	if(!CModule::IncludeModule("kit.gallery"))
 	{
 		$this->AbortResultCache();
-		ShowError(GetMessage("ARTDEPO_GALLERY_MODULE_NOT_INSTALLED")); // TODO: Написать текст
+		ShowError(GetMessage("KIT_GALLERY_MODULE_NOT_INSTALLED")); // TODO: Написать текст
 		return;
 	}
 	
 	// Get Collection By ID
-	$arResult = CArtDepoGallerySection::GetByID($arParams["PARENT_ID"]);
+	$arResult = CKitGallerySection::GetByID($arParams["PARENT_ID"]);
 	if($arResult)
 	{
-	    $arResult["TOP_SECTION"] = CArtDepoGallerySection::GetByID($arResult["PARENT_ID"]);
+	    $arResult["TOP_SECTION"] = CKitGallerySection::GetByID($arResult["PARENT_ID"]);
 	    
 	    $arResult["NAME"] = ($arResult[$name_lbl]) ? $arResult[$name_lbl] : $arResult["NAME"];
 	    $arResult["TOP_SECTION"]["NAME"] = ($arResult["TOP_SECTION"][$name_lbl]) ? $arResult["TOP_SECTION"][$name_lbl] : $arResult["TOP_SECTION"]["NAME"];
@@ -103,7 +103,7 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 		$obParser = new CTextParser;
 		$arResult["ITEMS"] = array();
 		$arResult["ELEMENTS"] = array();
-		$rsElement = CArtDepoGalleryImage::GetList($arSort, $arFilter);
+		$rsElement = CKitGalleryImage::GetList($arSort, $arFilter);
 		$rsElement->NavStart($arParams["NEWS_COUNT"]);
 		while($arItem = $rsElement->GetNext())
 		{

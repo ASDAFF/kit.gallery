@@ -71,12 +71,12 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 	if(!CModule::IncludeModule("kit.gallery"))
 	{
 		$this->AbortResultCache();
-		ShowError(GetMessage("ARTDEPO_GALLERY_MODULE_NOT_INSTALLED"));
+		ShowError(GetMessage("KIT_GALLERY_MODULE_NOT_INSTALLED"));
 		return;
 	}
 	
 	// Get Collection By ID
-	$arResult = CArtDepoGallerySection::GetByID($arParams["SECTION_ID"]);
+	$arResult = CKitGallerySection::GetByID($arParams["SECTION_ID"]);
 	if($arResult)
 	{
 	    // depend on language
@@ -96,7 +96,7 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 		$obParser = new CTextParser;
 		$arResult["ITEMS"] = array();
 		$arResult["ELEMENTS"] = array();
-		$rsElement = CArtDepoGallerySection::GetList($arSort, $arFilter);
+		$rsElement = CKitGallerySection::GetList($arSort, $arFilter);
 		$rsElement->NavStart($arParams["NEWS_COUNT"]);
 		while($arItem = $rsElement->GetNext())
 		{
@@ -114,7 +114,7 @@ if($this->StartResultCache(false, array(($arParams["CACHE_GROUPS"]==="N"? false:
 				$arItem["DISPLAY_ACTIVE_FROM"] = "";
 
             if($arParams["DISPLAY_COUNT"] == "Y" || !$arItem["COVER"]){
-                $rsImages = CArtDepoGalleryImage::GetList(array("SORT"=>"ASC"), array("PARENT_ID" => $arItem["ID"]));
+                $rsImages = CKitGalleryImage::GetList(array("SORT"=>"ASC"), array("PARENT_ID" => $arItem["ID"]));
                 if($arParams["DISPLAY_COUNT"] == "Y")
                     $arItem["ITEMS_COUNT"] = $rsImages->SelectedRowsCount();
                 if(!$arItem["COVER"] && $rsImages->SelectedRowsCount() > 0)

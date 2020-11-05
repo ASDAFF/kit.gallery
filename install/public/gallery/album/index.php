@@ -1,5 +1,5 @@
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle(GetMessage("ADG_INSTALL_PUBLIC_TITLE_ALBUM_INDEX"));?>
+$APPLICATION->SetTitle(GetMessage("KIT_GALLERY_INSTALL_PUBLIC_TITLE_ALBUM_INDEX"));?>
 
 <?$APPLICATION->IncludeComponent(
 	"kit:gallery.photo.list",

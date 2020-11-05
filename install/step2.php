@@ -14,10 +14,10 @@ else
 ?>
 
 <?=BeginNote()?>
-    <?=GetMessage("ADG_TEXT_1")?> - <a href="kit_gallery_index_admin.php?lang=<?=LANGUAGE_ID?>"><?=GetMessage("ADG_MODULE_NAME")?></a>
+    <?=GetMessage("KIT_GALLERY_TEXT_1")?> - <a href="kit_gallery_index_admin.php?lang=<?=LANGUAGE_ID?>"><?=GetMessage("KIT_GALLERY_MODULE_NAME")?></a>
     <br>
     <?if(strlen($_REQUEST["public_dir"])>0):?>
-        <?=GetMessage("ADG_DEMO_DIR")?>
+        <?=GetMessage("KIT_GALLERY_DEMO_DIR")?>
         <br>
         <?
 	    $sites = CSite::GetList($by, $order, Array("ACTIVE"=>"Y"));

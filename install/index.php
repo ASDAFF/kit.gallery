@@ -31,10 +31,10 @@ Class kit_gallery extends CModule
             $this->MODULE_VERSION_DATE = $arModuleVersion["VERSION_DATE"];
         }
 
-		$this->MODULE_NAME = GetMessage("ADG_MODULE_NAME");
-		$this->MODULE_DESCRIPTION = GetMessage("ADG_MODULE_DESC");
+		$this->MODULE_NAME = GetMessage("KIT_GALLERY_MODULE_NAME");
+		$this->MODULE_DESCRIPTION = GetMessage("KIT_GALLERY_MODULE_DESC");
     
-		$this->PARTNER_NAME = GetMessage("ADG_PARTNER_NAME");
+		$this->PARTNER_NAME = GetMessage("KIT_GALLERY_PARTNER_NAME");
 		$this->PARTNER_URI = "https://asdaff.github.io/";
     }
 
@@ -44,12 +44,12 @@ Class kit_gallery extends CModule
 	    $this->errors = false;
 	    
         // Create top root collection "module_gallery_multiupload"
-        $root_collection_id = CArtDepoGallerySection::GetRootCollectionID();
+        $root_collection_id = CKitGallerySection::GetRootCollectionID();
         if (!$root_collection_id)
-            $root_collection_id = CArtDepoGallerySection::CreateRootCollection();
+            $root_collection_id = CKitGallerySection::CreateRootCollection();
         if (!$root_collection_id)
         {
-            $this->errors = array(GetMessage("ADG_MODULE_ERROR_NO_ROOT_COLLECTION"));
+            $this->errors = array(GetMessage("KIT_GALLERY_MODULE_ERROR_NO_ROOT_COLLECTION"));
             $APPLICATION->ThrowException(implode("<br>", $this->errors));
             return false;
         }
@@ -69,7 +69,7 @@ Class kit_gallery extends CModule
             
             if (!$section_id)
 	        {
-	            $this->errors = array(GetMessage("ADG_MODULE_ERROR_NO_ROOT_COLLECTION"));
+	            $this->errors = array(GetMessage("KIT_GALLERY_MODULE_ERROR_NO_ROOT_COLLECTION"));
 	            $APPLICATION->ThrowException(implode("<br>", $this->errors));
 	            return false;
             }
@@ -191,7 +191,7 @@ Class kit_gallery extends CModule
 		$step = IntVal($step);
 		if($step < 2)
 		{
-			$APPLICATION->IncludeAdminFile(GetMessage("ADG_INSTALL_TITLE"), $_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/".$this->MODULE_ID."/install/step1.php");
+			$APPLICATION->IncludeAdminFile(GetMessage("KIT_GALLERY_INSTALL_TITLE"), $_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/".$this->MODULE_ID."/install/step1.php");
 		}
 		elseif($step == 2)
 		{
@@ -207,7 +207,7 @@ Class kit_gallery extends CModule
 				));
 			}
 			$GLOBALS["errors"] = $this->errors;
-			$APPLICATION->IncludeAdminFile(GetMessage("ADG_INSTALL_TITLE"), $_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/".$this->MODULE_ID."/install/step2.php");
+			$APPLICATION->IncludeAdminFile(GetMessage("KIT_GALLERY_INSTALL_TITLE"), $_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/".$this->MODULE_ID."/install/step2.php");
 		}
 	}
 

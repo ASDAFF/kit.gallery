@@ -35,21 +35,21 @@ $(document).ready(function () {
         },
         
         text: {
-            uploadButton: BX.message('ADG_UP_BTN_ADD_NEW_IMG'),
+            uploadButton: BX.message('KIT_GALLERY_UP_BTN_ADD_NEW_IMG'),
             dropProcessing: '',
-            dragZone: BX.message('ADG_UP_DRAG_DROP'),
-            cancelButton: BX.message('ADG_UP_BTN_CANCEL'),
-            retryButton: BX.message('ADG_UP_BTN_REPEAT'),
-            deleteButton: BX.message('ADG_UP_BTN_DELETE'),
-            failUpload: BX.message('ADG_UP_ERROR_FILE_UPLOAD')
+            dragZone: BX.message('KIT_GALLERY_UP_DRAG_DROP'),
+            cancelButton: BX.message('KIT_GALLERY_UP_BTN_CANCEL'),
+            retryButton: BX.message('KIT_GALLERY_UP_BTN_REPEAT'),
+            deleteButton: BX.message('KIT_GALLERY_UP_BTN_DELETE'),
+            failUpload: BX.message('KIT_GALLERY_UP_ERROR_FILE_UPLOAD')
         },
 
         template: '\
             <div class="qq-uploader adm-detail-content-wrap">\
                 <div class="adm-detail-content">\
-	                <div class="adm-detail-title" style="color:#5b5e61;">'+BX.message('ADG_UP_TITLE')+'</div>\
+	                <div class="adm-detail-title" style="color:#5b5e61;">'+BX.message('KIT_GALLERY_UP_TITLE')+'</div>\
 	                <div class="adm-detail-content-item-block">\
-                        '+BX.message('ADG_UP_DESCRIPTION_TEXT')+'\
+                        '+BX.message('KIT_GALLERY_UP_DESCRIPTION_TEXT')+'\
                         <span class="qq-drop-processing"><span>{dropProcessingText}</span><span class="qq-drop-processing-spinner"></span></span>\
                         <ul class="qq-upload-list"></ul>\
 	                </div>\
@@ -57,7 +57,7 @@ $(document).ready(function () {
                 <div class="adm-detail-content-btns-wrap" style="left: 0px;">\
                     <div class="adm-detail-content-btns">\
                         <span id="qq-upload_photo-button" class="qq-upload-button adm-btn adm-btn-save adm-btn-add" style="float:none;width:auto;">{uploadButtonText}</span>\
-                        <a href="" class="adm-btn" style="visibility: hidden;">'+BX.message('ADG_UP_BTN_SHOW_UPLOADED_IMAGES')+'</a>\
+                        <a href="" class="adm-btn" style="visibility: hidden;">'+BX.message('KIT_GALLERY_UP_BTN_SHOW_UPLOADED_IMAGES')+'</a>\
                     </div>\
                 </div>\
             </div>\

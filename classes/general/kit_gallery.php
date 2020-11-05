@@ -1,12 +1,12 @@
 <?
 
 define("ROOT_COLLECTION_NAME", "module_gallery_multiupload");
-// TODO:  Создать эту коллекцию если она ещё не существует, а лучше создать её при инсталяции, хотя фиг знает как лучше, наверное при инсталяции модуля все же правильнее
+// TODO:  РЎРѕР·РґР°С‚СЊ СЌС‚Сѓ РєРѕР»Р»РµРєС†РёСЋ РµСЃР»Рё РѕРЅР° РµС‰С‘ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, Р° Р»СѓС‡С€Рµ СЃРѕР·РґР°С‚СЊ РµС‘ РїСЂРё РёРЅСЃС‚Р°Р»СЏС†РёРё, С…РѕС‚СЏ С„РёРі Р·РЅР°РµС‚ РєР°Рє Р»СѓС‡С€Рµ, РЅР°РІРµСЂРЅРѕРµ РїСЂРё РёРЅСЃС‚Р°Р»СЏС†РёРё РјРѕРґСѓР»СЏ РІСЃРµ Р¶Рµ РїСЂР°РІРёР»СЊРЅРµРµ
 
 CModule::IncludeModule("fileman");
 CMedialib::Init();
 
-class CArtDepoGallerySection
+class CKitGallerySection
 {
     static private
         $ml_type = 1,
@@ -16,7 +16,7 @@ class CArtDepoGallerySection
     public
         $LAST_ERROR = "";
     
-    function CArtDepoGallerySection()
+    function CKitGallerySection()
     {
         self::$root_collection_id = $this->GetRootCollectionID();
         return self::$root_collection_id;
@@ -27,7 +27,7 @@ class CArtDepoGallerySection
     {
         $arFilter = array_merge(
             array(
-                "ACTIVE" => "Y", // TODO: Это наверное стоит убрать.
+                "ACTIVE" => "Y", // TODO: Р­С‚Рѕ РЅР°РІРµСЂРЅРѕРµ СЃС‚РѕРёС‚ СѓР±СЂР°С‚СЊ.
                 "ML_TYPE" => self::$ml_type, 
                 "PARENT_ID" => self::$root_collection_id
             ), 
@@ -39,16 +39,16 @@ class CArtDepoGallerySection
             $arData = array();
         $arDataNew = array();
         foreach ($arData as $k => $arItem) {
-            // IMPORTATN: Дополнительное отсеивание, т.к. в API CMedialibCollection::GetList ошибка - PARENT_ID выполняет поиск по like(%ID%)
+            // IMPORTATN: Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅРѕРµ РѕС‚СЃРµРёРІР°РЅРёРµ, С‚.Рє. РІ API CMedialibCollection::GetList РѕС€РёР±РєР° - PARENT_ID РІС‹РїРѕР»РЅСЏРµС‚ РїРѕРёСЃРє РїРѕ like(%ID%)
             if ( $arFilter["PARENT_ID"] <= 0 || ($arFilter["PARENT_ID"] == $arItem["PARENT_ID"]) ) {
-                $arDesc = CArtDepoGalleryUtils::DescriptionUnpack($arItem["DESCRIPTION"]);
+                $arDesc = CKitGalleryUtils::DescriptionUnpack($arItem["DESCRIPTION"]);
                 if (!isset($arDesc["SORT"]))
                     $arDesc["SORT"] = self::$SORT_default;
                 $arDataNew[$k] = array_merge($arItem, $arDesc);
             }
         }
         // Sort, by SORT virtual field
-        CArtDepoGalleryUtils::SortArray($arOrder, $arDataNew);
+        CKitGalleryUtils::SortArray($arOrder, $arDataNew);
         
         $rsData = new CDBResult;
         $rsData->InitFromArray($arDataNew);
@@ -67,7 +67,7 @@ class CArtDepoGallerySection
             $arItem = array_shift($arData);
         }
         if($arItem["DESCRIPTION"]){    
-            $arDesc = CArtDepoGalleryUtils::DescriptionUnpack($arItem["DESCRIPTION"]);
+            $arDesc = CKitGalleryUtils::DescriptionUnpack($arItem["DESCRIPTION"]);
             $arItem = array_merge($arItem, $arDesc);
         }
         return $arItem;
@@ -102,7 +102,7 @@ class CArtDepoGallerySection
 		));
     }
     
-    // Удаляет коллекцию, и всё деревоего потомков
+    // РЈРґР°Р»СЏРµС‚ РєРѕР»Р»РµРєС†РёСЋ, Рё РІСЃС‘ РґРµСЂРµРІРѕРµРіРѕ РїРѕС‚РѕРјРєРѕРІ
     function Delete($ID)
     {
         if (intVal($ID) <= 0)
@@ -110,21 +110,21 @@ class CArtDepoGallerySection
         $arRes = CMedialib::GetCollectionTree();
         $child_cols = array();
         self::GetAllChildrenID($arRes["arColTree"], $ID, $child_cols);
-        return CMedialib::DelCollection($ID, $child_cols);; // коллекция и её потомки
+        return CMedialib::DelCollection($ID, $child_cols);; // РєРѕР»Р»РµРєС†РёСЏ Рё РµС‘ РїРѕС‚РѕРјРєРё
     }
     
     /**
-     * Получает ID-шники всех потомков узла c ID=$ID
+     * РџРѕР»СѓС‡Р°РµС‚ ID-С€РЅРёРєРё РІСЃРµС… РїРѕС‚РѕРјРєРѕРІ СѓР·Р»Р° c ID=$ID
      * 
-     * Нужно передать $arColTree - полное дерево в формате CMedialib::GetCollectionTree
-     * и $ID узла от которого нужны потомки
-     * в параметр по ссылке $child_cols складываються ID-шники "детишек".
-     * @params $child_cols array вида array(id1, id2, id3, ...)
-     * Функция рекурсивная, и ничего не возврщает.
+     * РќСѓР¶РЅРѕ РїРµСЂРµРґР°С‚СЊ $arColTree - РїРѕР»РЅРѕРµ РґРµСЂРµРІРѕ РІ С„РѕСЂРјР°С‚Рµ CMedialib::GetCollectionTree
+     * Рё $ID СѓР·Р»Р° РѕС‚ РєРѕС‚РѕСЂРѕРіРѕ РЅСѓР¶РЅС‹ РїРѕС‚РѕРјРєРё
+     * РІ РїР°СЂР°РјРµС‚СЂ РїРѕ СЃСЃС‹Р»РєРµ $child_cols СЃРєР»Р°РґС‹РІР°СЋС‚СЊСЃСЏ ID-С€РЅРёРєРё "РґРµС‚РёС€РµРє".
+     * @params $child_cols array РІРёРґР° array(id1, id2, id3, ...)
+     * Р¤СѓРЅРєС†РёСЏ СЂРµРєСѓСЂСЃРёРІРЅР°СЏ, Рё РЅРёС‡РµРіРѕ РЅРµ РІРѕР·РІСЂС‰Р°РµС‚.
      */
     function GetAllChildrenID($arColTree, $ID, &$child_cols)
     {
-        // В случае если мы нашли вершину дерева $ID, тогда $ID будет индикатором, и устанавливается в false
+        // Р’ СЃР»СѓС‡Р°Рµ РµСЃР»Рё РјС‹ РЅР°С€Р»Рё РІРµСЂС€РёРЅСѓ РґРµСЂРµРІР° $ID, С‚РѕРіРґР° $ID Р±СѓРґРµС‚ РёРЅРґРёРєР°С‚РѕСЂРѕРј, Рё СѓСЃС‚Р°РЅР°РІР»РёРІР°РµС‚СЃСЏ РІ false
         if ($ID) {
             foreach($arColTree as $arCol){
                 if ($ID == $arCol["id"]) {
@@ -183,7 +183,7 @@ class CArtDepoGallerySection
 
 
 
-class CArtDepoGalleryImage
+class CKitGalleryImage
 {
     static private
         $SORT_default = 500;
@@ -201,7 +201,7 @@ class CArtDepoGalleryImage
         if($Params){
             $arData = CMedialibItem::GetList($Params);
             foreach ($arData as $k => $arItem) {
-                $arDesc = CArtDepoGalleryUtils::DescriptionUnpack($arItem["DESCRIPTION"]);
+                $arDesc = CKitGalleryUtils::DescriptionUnpack($arItem["DESCRIPTION"]);
                 if (!isset($arDesc["SORT"]))
                     $arDesc["SORT"] = self::$SORT_default;
                 $arData2[$k] = array_merge($arItem, $arDesc);
@@ -211,7 +211,7 @@ class CArtDepoGalleryImage
         if (!is_array($arData))
             $arData = array();
         // Sort
-        CArtDepoGalleryUtils::SortArray($arOrder, $arData);
+        CKitGalleryUtils::SortArray($arOrder, $arData);
         // Return CDBResult
         $rsData = new CDBResult;
         $rsData->InitFromArray($arData);
@@ -229,7 +229,7 @@ class CArtDepoGalleryImage
             'ID' => $ID,
         ));
         if ($arItem = $rsData->GetNext()) if($arItem["DESCRIPTION"]) {
-            $arDesc = CArtDepoGalleryUtils::DescriptionUnpack($arItem["DESCRIPTION"]);
+            $arDesc = CKitGalleryUtils::DescriptionUnpack($arItem["DESCRIPTION"]);
             $arItem = array_merge($arItem, $arDesc);
         }
         return $arItem;
@@ -307,7 +307,7 @@ class CArtDepoGalleryImage
 
 
 
-class CArtDepoGalleryUtils
+class CKitGalleryUtils
 {
     static private
         $delimer = "&&";

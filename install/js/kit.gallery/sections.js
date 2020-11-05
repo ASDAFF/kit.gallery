@@ -1,10 +1,10 @@
 if (!window.BX && top.BX)
 	window.BX = top.BX;
 
-var ArtDepoGallery = {
+var KitGallery = {
     'add': function(){
         this.showDialog({
-            'title': BX.message('ADG_WTITLE_NEW_SECTION')
+            'title': BX.message('KIT_GALLERY_WTITLE_NEW_SECTION')
         });
     },
     
@@ -29,7 +29,7 @@ var ArtDepoGallery = {
         var parent_id = this.getParentID();
         BX.ready(function(){
             if ( parent_id <= 0) {
-                alert(BX.message('ADG_ERROR_NO_SECTION'));
+                alert(BX.message('KIT_GALLERY_ERROR_NO_SECTION'));
                 return false;
             }
             var sort = item.SORT || "500",
@@ -45,15 +45,15 @@ var ArtDepoGallery = {
                 val = item["NAME_" + languages[i].lid.toUpperCase()];
                 if (!val)
                     val = "";
-                inner_content += '<tr><td><b>'+BX.message('ADG_LBL_NAME')+' ('+languages[i].name+'):</b></td><td><input type="text" name="name_'+languages[i].lid+'" value="'+val+'"></td></tr>';
+                inner_content += '<tr><td><b>'+BX.message('KIT_GALLERY_LBL_NAME')+' ('+languages[i].name+'):</b></td><td><input type="text" name="name_'+languages[i].lid+'" value="'+val+'"></td></tr>';
             }
-            inner_content += '<tr><td><b>'+BX.message('ADG_LBL_SORT')+':</b></td><td><input type="text" name="sort" value="'+sort+'"></td></tr>';
+            inner_content += '<tr><td><b>'+BX.message('KIT_GALLERY_LBL_SORT')+':</b></td><td><input type="text" name="sort" value="'+sort+'"></td></tr>';
             inner_content += '</tbody></table>';
             
             inner_content += '</form>';
 
             var btnSave = { 
-                'title': BX.message('ADG_LBL_SAVE'), 
+                'title': BX.message('KIT_GALLERY_LBL_SAVE'), 
                 'id': 'action_send', 
                 'name': 'savebtn',
                 'className': BX.browser.IsIE() && BX.browser.IsDoctype() && !BX.browser.IsIE10() ? '' : 'adm-btn-save',
@@ -65,7 +65,7 @@ var ArtDepoGallery = {
                         var el = form_elements[i];
                         if(el.type == "text" && !firstPassed){
                             if(el.value == ''){
-                                alert(BX.message('ADG_ERROR_EMPTY_NAME'));
+                                alert(BX.message('KIT_GALLERY_ERROR_EMPTY_NAME'));
                                 return false;
                             }
                             firstPassed = true;
@@ -80,8 +80,8 @@ var ArtDepoGallery = {
             }
 
             var Dialog = new BX.CAdminDialog({
-                title: BX.message('ADG_WTITLE_EDIT_SECTION'),
-                head: BX.message('ADG_MSG_ENTER_NAME'),
+                title: BX.message('KIT_GALLERY_WTITLE_EDIT_SECTION'),
+                head: BX.message('KIT_GALLERY_MSG_ENTER_NAME'),
                 content: inner_content,
                 icon: 'head-block',
                 resizable: true,
@@ -100,7 +100,7 @@ var ArtDepoGallery = {
             parent_id = self.getParentID();
         BX.ready(function(){
             if ( parent_id <= 0 ) {
-                alert(BX.message('ADG_ERROR_NO_SECTION'));
+                alert(BX.message('KIT_GALLERY_ERROR_NO_SECTION'));
                 return false;
             }
             var languages = kit_gallery_section.languages,
@@ -110,12 +110,12 @@ var ArtDepoGallery = {
             inner_content += '<input type="hidden" name="parent" value="'+parent_id+'">';
             inner_content += '<table class="mlsd-fields-tbl"><tbody>';
             for(var i=0, lan = languages.length; i < lan; i++){
-                inner_content += '<tr><td><b>'+BX.message('ADG_LBL_NAME')+' ('+languages[i].name+'):</b></td><td><input type="text" name="name_'+languages[i].lid+'"></td></tr>';
+                inner_content += '<tr><td><b>'+BX.message('KIT_GALLERY_LBL_NAME')+' ('+languages[i].name+'):</b></td><td><input type="text" name="name_'+languages[i].lid+'"></td></tr>';
             }
             inner_content += '</tbody></table></form>';
 
             var btnSave = { 
-                'title': BX.message('ADG_LBL_SAVE'),
+                'title': BX.message('KIT_GALLERY_LBL_SAVE'),
                 'id': 'action_send', 
                 'name': 'savebtn',
                 'className': BX.browser.IsIE() && BX.browser.IsDoctype() && !BX.browser.IsIE10() ? '' : 'adm-btn-save',
@@ -130,7 +130,7 @@ var ArtDepoGallery = {
                         el.value = escape(el.value);
                         if(el.type == "text" && !firstPassed){
                             if(el.value == ''){
-                                alert(BX.message('ADG_ERROR_EMPTY_NAME'));
+                                alert(BX.message('KIT_GALLERY_ERROR_EMPTY_NAME'));
                                 return false;
                             }
                             firstPassed = true;
@@ -144,7 +144,7 @@ var ArtDepoGallery = {
 
             var Dialog = new BX.CAdminDialog({
                 title: params.title,
-                head: BX.message('ADG_MSG_ENTER_NAME'),
+                head: BX.message('KIT_GALLERY_MSG_ENTER_NAME'),
                 content: inner_content,
                 icon: 'head-block',
                 resizable: true,

@@ -9,10 +9,10 @@ require_once(dirname(__FILE__)."/../prolog.php");
 IncludeModuleLangFile(__FILE__);
 IncludeModuleLangFile($DOCUMENT_ROOT.BX_ROOT."/modules/main/interface/admin_lib.php");
 
-$gSection = new CArtDepoGallerySection();
+$gSection = new CKitGallerySection();
 
 // Get all languages in system
-$languages = CArtDepoGalleryUtils::GetSiteLangs();
+$languages = CKitGalleryUtils::GetSiteLangs();
 
 $sTableID = "tbl_kit_gallery_collections";
 $oSort = new CAdminSorting($sTableID, "id", "desc");
@@ -69,8 +69,8 @@ if(($arID = $lAdmin->GroupAction()))
 					$lAdmin->AddGroupError(GetMessage("IBEL_A_UPDERR").$gSection->LAST_ERROR, $ID);
 			break;
 			case "delete":
-				if(!CArtDepoGallerySection::Delete($ID))
-					$lAdmin->AddGroupError(GetMessage("ARTDEPO_GALLERY_LIST_ERR_DEL"), $ID);
+				if(!CKitGallerySection::Delete($ID))
+					$lAdmin->AddGroupError(GetMessage("KIT_GALLERY_LIST_ERR_DEL"), $ID);
 			break;
 		}
 	}
@@ -79,7 +79,7 @@ if(($arID = $lAdmin->GroupAction()))
 $rsData = $gSection->GetList(array($by=>$order), $arFilter);
 $rsData = new CAdminResult($rsData, $sTableID);
 $rsData->NavStart();
-$lAdmin->NavText($rsData->GetNavPrint(GetMessage("ARTDEPO_GALLERY_LIST_NAV")));
+$lAdmin->NavText($rsData->GetNavPrint(GetMessage("KIT_GALLERY_LIST_NAV")));
 
 // string => "Russina / English / ..."
 foreach ($languages as $lang) {
@@ -88,10 +88,10 @@ foreach ($languages as $lang) {
 $strLangTitles = implode(" / ", $strLangTitles);
 
 $aHeaders = array(
-	array("id"=>"NAME", "content"=>GetMessage("ARTDEPO_GALLERY_NAME") . " (" . $strLangTitles . ")", "sort"=>"name", "default"=>true),
-	array("id"=>"ACTIVE", "content"=>GetMessage("ARTDEPO_GALLERY_ACTIVE"), "sort"=>"active", "default"=>true),
-	array("id"=>"DATE_UPDATE", "content"=>GetMessage("ARTDEPO_GALLERY_DATE_UPDATE"), "sort"=>"date_update", "default"=>true),
-	array("id"=>"OWNER_ID", "content"=>GetMessage("ARTDEPO_GALLERY_OWNER_ID"), "sort"=>"owner_id", "default"=>false),
+	array("id"=>"NAME", "content"=>GetMessage("KIT_GALLERY_NAME") . " (" . $strLangTitles . ")", "sort"=>"name", "default"=>true),
+	array("id"=>"ACTIVE", "content"=>GetMessage("KIT_GALLERY_ACTIVE"), "sort"=>"active", "default"=>true),
+	array("id"=>"DATE_UPDATE", "content"=>GetMessage("KIT_GALLERY_DATE_UPDATE"), "sort"=>"date_update", "default"=>true),
+	array("id"=>"OWNER_ID", "content"=>GetMessage("KIT_GALLERY_OWNER_ID"), "sort"=>"owner_id", "default"=>false),
 	array("id"=>"ID", "content"=>"ID", "sort"=>"id", "default"=>true),
 );
 
@@ -103,14 +103,14 @@ while($arRes = $rsData->NavNext(true, "f_"))
 {
 	$row =& $lAdmin->AddRow($f_ID, $arRes);
     // pack names in right order
-    $strNames = CArtDepoGalleryUtils::PackNamesInStringOrderedByLang($arRes, $languages);
+    $strNames = CKitGalleryUtils::PackNamesInStringOrderedByLang($arRes, $languages);
     
     $open_url = 'kit_gallery_section_admin.php?find_parent_id='.$f_ID.'&lang='.LANGUAGE_ID;
     
     $row_name = $f_NAME . (($strNames) ? " ({$strNames})" : "");
     $row->AddViewField("NAME", '<a href="'.$open_url.'" class="adm-list-table-icon-link" title="'.GetMessage("IBLIST_A_LIST").'"><span class="adm-submenu-item-link-icon adm-list-table-icon iblock-section-icon"></span><span class="adm-list-table-link">'.htmlspecialchars_decode($row_name).'</span></a>');
 	
-	$row->AddViewField("ACTIVE", $f_ACTIVE == "Y" ? GetMessage("ARTDEPO_GALLERY_ACTIVE_YES") : GetMessage("ARTDEPO_GALLERY_ACTIVE_NO"));
+	$row->AddViewField("ACTIVE", $f_ACTIVE == "Y" ? GetMessage("KIT_GALLERY_ACTIVE_YES") : GetMessage("KIT_GALLERY_ACTIVE_NO"));
 	
 	if (in_array("OWNER_ID", $arSelectedFields) !== false && $f_OWNER_ID) {
 	    $rsUser = CUser::GetByID($f_OWNER_ID);
@@ -126,18 +126,18 @@ while($arRes = $rsData->NavNext(true, "f_"))
 		array(
 			"ICON"=>"",
 			"DEFAULT"=>true,
-			"TEXT"=>GetMessage("ARTDEPO_GALLERY_LIST_ENTER"),
+			"TEXT"=>GetMessage("KIT_GALLERY_LIST_ENTER"),
 			"ACTION"=>$lAdmin->ActionRedirect($open_url)
 		),
 		array(
 			"ICON"=>"edit",
-			"TEXT"=>GetMessage("ARTDEPO_GALLERY_LIST_EDIT"),
-			"ACTION"=>"ArtDepoGallery.edit($f_ID);"//$lAdmin->ActionRedirect("rating_edit.php?ID=".$f_ID)
+			"TEXT"=>GetMessage("KIT_GALLERY_LIST_EDIT"),
+			"ACTION"=>"KitGallery.edit($f_ID);"//$lAdmin->ActionRedirect("rating_edit.php?ID=".$f_ID)
 		),
 		array(
 			"ICON"=>"delete",
-			"TEXT"=>GetMessage("ARTDEPO_GALLERY_LIST_DEL"),
-			"ACTION"=>"if(confirm('".GetMessage("ARTDEPO_GALLERY_LIST_DEL_CONF")."')) ".$lAdmin->ActionDoGroup($f_ID, "delete")."return false;"
+			"TEXT"=>GetMessage("KIT_GALLERY_LIST_DEL"),
+			"ACTION"=>"if(confirm('".GetMessage("KIT_GALLERY_LIST_DEL_CONF")."')) ".$lAdmin->ActionDoGroup($f_ID, "delete")."return false;"
 		),
 	);
 	$row->AddActions($arActions);
@@ -165,15 +165,15 @@ if(true)
 $aContext = array(
 	array(
         "ICON"=>"btn_new",
-		"TEXT"=>GetMessage("ARTDEPO_GALLERY_LIST_ADD"),
-		"LINK"=>"javascript:ArtDepoGallery.add();",
-		"TITLE"=>GetMessage("ARTDEPO_GALLERY_LIST_ADD_TITLE"),
+		"TEXT"=>GetMessage("KIT_GALLERY_LIST_ADD"),
+		"LINK"=>"javascript:KitGallery.add();",
+		"TITLE"=>GetMessage("KIT_GALLERY_LIST_ADD_TITLE"),
 	),
 );
 $lAdmin->AddAdminContextMenu($aContext);
 $lAdmin->CheckListMode();
 
-$APPLICATION->SetTitle(GetMessage("ARTDEPO_GALLERY_LIST_PAGE_TITLE"));
+$APPLICATION->SetTitle(GetMessage("KIT_GALLERY_LIST_PAGE_TITLE"));
 require_once ($DOCUMENT_ROOT.BX_ROOT."/modules/main/include/prolog_admin_after.php");
 
 $lAdmin->DisplayList(array());

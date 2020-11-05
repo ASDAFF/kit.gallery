@@ -59,20 +59,20 @@ if ($action == 'edit_collection' && $name_default && $desc)
 }
 elseif ($action == 'del_collection')
 {
-    $res = CArtDepoGallerySection::Delete((int)$_POST['id'])
+    $res = CKitGallerySection::Delete((int)$_POST['id'])
     ?><script>window.bx_req_res = <?= ($res ? 'true' : 'false')?>;
     window.location.assign(window.location.href);</script><?
 }
 elseif ($action == 'get_collection' && $id)
 {
-    $arItem = CArtDepoGallerySection::GetByID($id);
+    $arItem = CKitGallerySection::GetByID($id);
     foreach($arItem as $k => $itm) if(is_string($itm))
         $arItemJ[$k] = htmlspecialcharsex($itm);
     echo array_to_json($arItemJ);
 }
 elseif ($action == 'get_item' && $id)
 {
-    $arItem = CArtDepoGalleryImage::GetByID($id);
+    $arItem = CKitGalleryImage::GetByID($id);
     foreach($arItem as $k => $itm) if(is_string($itm))
         $arItemJ[$k] = htmlspecialcharsex($itm);
     echo array_to_json($arItemJ);
@@ -101,12 +101,12 @@ elseif ($action == 'edit_item')
             'item_collections' => $parent
         ));
     }
-	$res = CArtDepoGalleryImage::Edit($arParams);
+	$res = CKitGalleryImage::Edit($arParams);
 	if ($id) {
 	    if ($res)
 	        echo "<script>window.location.assign(window.location.href);</script>";
 	    else
-	        echo "<script>alert('������, ���������� ��� ���');>window.location.assign(window.location.href);</script>";
+	        echo "<script>alert('Ошибка, попробуйте ещё раз');>window.location.assign(window.location.href);</script>";
     } else {
         echo '{"success": ' . ((!$res) ? 'false' : 'true') . '}';
     }

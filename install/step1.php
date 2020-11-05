@@ -1,4 +1,4 @@
-<?echo BeginNote(), GetMessage("ADG_STEP1_INFORMATION"), EndNote()?>
+<?echo BeginNote(), GetMessage("KIT_GALLERY_STEP1_INFORMATION"), EndNote()?>
 
 <form action="<?echo $APPLICATION->GetCurPage()?>" name="form1">
 <?=bitrix_sessid_post()?>
@@ -19,7 +19,7 @@
 	<table cellpadding="3" cellspacing="0" border="0" width="0%">
 		<tr>
 			<td><input type="checkbox" name="install_demo_gallery" value="Y" id="id_install_demo_gallery"></td>
-			<td><p><label for="id_install_demo_gallery"><?= GetMessage("ADG_INSTALL_DEMO_GALLERY") ?></label></p></td>
+			<td><p><label for="id_install_demo_gallery"><?= GetMessage("KIT_GALLERY_INSTALL_DEMO_GALLERY") ?></label></p></td>
 		</tr>
 		<tr>
 			<td><input type="checkbox" name="install_public" value="Y" id="id_install_public" OnClick="ChangeInstallPublic(this.checked)"></td>

@@ -1,3 +1,3 @@
 <?
-$MESS ['ARTDEPO_GALLERY_MENU_MAIN'] = "Gallery with multiupload";
+$MESS ['KIT_GALLERY_MENU_MAIN'] = "Gallery with multiupload";
 ?>

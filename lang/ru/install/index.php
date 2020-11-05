@@ -5,7 +5,7 @@ $MESS ["KIT_GALLERY_INSTALL_TITLE"] = "Установка модуля &laquo;Г
 $MESS ["KIT_GALLERY_UNINSTALL_TITLE"] = "Удаление модуля &laquo;Галерея с мультизагрузкой&raquo;";
 $MESS ['KIT_GALLERY_INSTALL_DEMO_GALLERY'] = "Установить демо галерею";
 $MESS ['KIT_GALLERY_MODULE_ERROR_NO_ROOT_COLLECTION'] = "Невозможно создать корневую коллекцию в медиабиблиотеке.";
-$MESS ['KIT_GALLERY_PARTNER_NAME'] = "Арт Депо";
+$MESS ['KIT_GALLERY_PARTNER_NAME'] = "ASDAFF";
 $MESS ['KIT_GALLERY_STEP1_INFORMATION'] = "
 Если Вы ещё не знакомы с работой данного модуля и устанавливаете его впервые, настоятельно рекомендуем установить все настройки ниже, чтобы лучше понимать принцип работы.<br><br>
 1) \"Установить демо-галерею\" — Установит демонстрационные альбомы с изображениями. (Для понимания связи \"Разделов\", \"Альбомов\", \"Изображений\").<br>
